@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TasknTrade Advisory</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 700px;
+      position: relative;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      left: 20px;
+      width: 120px; /* Adjusted logo size for bigger display */
+      height: auto;
+    }
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      color: #333333;
+      margin: 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-weight: bold;
+      color: #333333;
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .form-group textarea {
+      resize: vertical;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .radio-group {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+      color: #555555;
+    }
+    .radio-group input[type="radio"] {
+      margin-right: 8px;
+    }
+    .conditional {
+      display: none;
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .hide-button {
+      background-color: #FF4136;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .hide-button:hover {
+      background-color: #b32e24;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header with Logo and Title -->
+    <div class="header">
+      <img src="C:\Users\Dell\Desktop\Business idea\Logo of TNT.png" alt="TasknTrade Logo" class="logo">
+      <h1>TasknTrade Advisory</h1>
+    </div>
+
+    <!-- Form -->
+    <form id="business-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact Number</label>
+        <input type="text" id="contact" name="contact" placeholder="Enter your contact number" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+      </div>
+      <div class="form-group">
+        <label>Do you have a specific business idea in mind?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="idea" value="yes" required> Yes</label>
+          <label><input type="radio" name="idea" value="no"> No</label>
+        </div>
+      </div>
+
+      <!-- Conditional Section for Specific Business Idea -->
+      <div id="specific-idea-questions" class="conditional">
+        <div class="form-group">
+          <label for="type">What type of business do you want to start?</label>
+          <input type="text" id="type" name="type" placeholder="Describe the business type">
+        </div>
+        <div class="form-group">
+          <label for="specific-budget">What is your budget or initial investment?</label>
+          <input type="text" id="specific-budget" name="specific-budget" placeholder="Enter your budget">
+        </div>
+        <div class="form-group">
+          <label for="reason">Why do you want to start a business?</label>
+          <textarea id="reason" name="reason" rows="3" placeholder="Explain your motivation"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="challenges">What challenges are you currently facing?</label>
+          <textarea id="challenges" name="challenges" rows="3" placeholder="List your challenges"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="audience">What is your target audience?</label>
+          <input type="text" id="audience" name="audience" placeholder="Describe your target audience">
+        </div>
+        <div class="form-group">
+          <label for="timeline">What is your timeline to launch?</label>
+          <input type="text" id="timeline" name="timeline" placeholder="Specify your timeline">
+        </div>
+        <button type="button" class="hide-button" onclick="hideQuestions('specific-idea-questions')">Hide Questions</button>
+      </div>
+
+      <!-- Conditional Section for Exploring Options -->
+      <div id="exploration-questions" class="conditional">
+        <div class="form-group">
+          <label for="budget">What is your budget or initial investment?</label>
+          <input type="text" id="budget" name="budget" placeholder="Enter your budget">
+        </div>
+        <div class="form-group">
+          <label for="reason-exploration">Why do you want to start a business?</label>
+          <textarea id="reason-exploration" name="reason-exploration" rows="3" placeholder="Explain your motivation"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="challenges-exploration">What challenges are you currently facing?</label>
+          <textarea id="challenges-exploration" name="challenges-exploration" rows="3" placeholder="List your challenges"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="timeline-exploration">What is your timeline to launch?</label>
+          <input type="text" id="timeline-exploration" name="timeline-exploration" placeholder="Specify your timeline">
+        </div>
+        <button type="button" class="hide-button" onclick="hideQuestions('exploration-questions')">Hide Questions</button>
+      </div>
+
+      <button type="submit">Generate Idea</button>
+    </form>
+  </div>
+
+  <script>
+    document.querySelectorAll('input[name="idea"]').forEach(radio => {
+      radio.addEventListener("change", (e) => {
+        const value = e.target.value;
+        document.getElementById("specific-idea-questions").style.display = value === "yes" ? "block" : "none";
+        document.getElementById("exploration-questions").style.display = value === "no" ? "block" : "none";
+      });
+    });
+
+    function hideQuestions(sectionId) {
+      document.getElementById(sectionId).style.display = "none";
+    }
+
+    document.getElementById("business-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Replace with your Make.com webhook URL
+      fetch("YOUR_MAKE_WEBHOOK_URL", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("Your business idea is being generated! Check your email shortly.");
+        } else {
+          alert("There was an error. Please try again.");
+        }
+      })
+      .catch(error => console.error("Error:", error));
+    });
+  </script>
+</body>
+</html>
+
